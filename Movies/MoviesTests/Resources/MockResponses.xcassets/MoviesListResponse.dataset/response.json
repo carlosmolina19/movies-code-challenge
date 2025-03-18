@@ -1,0 +1,65 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": null,
+            "genre_ids": [
+                18,
+                10749
+            ],
+            "id": 1149912,
+            "original_language": "id",
+            "original_title": "Kelas Bintang - Hot Moms",
+            "overview": "",
+            "popularity": 664.117,
+            "poster_path": "/7dBqZmErtrxN9ghOJoW6SimgDo1.jpg",
+            "release_date": "2023-02-09",
+            "title": "Kelas Bintang - Hot Moms",
+            "video": false,
+            "vote_average": 5.8,
+            "vote_count": 7
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/qUc0Hol3eP74dbW4YyqT6oRLYgT.jpg",
+            "genre_ids": [
+                878,
+                35,
+                12
+            ],
+            "id": 696506,
+            "original_language": "en",
+            "original_title": "Mickey 17",
+            "overview": "Unlikely hero Mickey Barnes finds himself in the extraordinary circumstance of working for an employer who demands the ultimate commitment to the job… to die, for a living.",
+            "popularity": 25.061,
+            "poster_path": "/edKpE9B5qN3e559OuMCLZdW1iBZ.jpg",
+            "release_date": "2025-02-28",
+            "title": "Mickey 17",
+            "video": false,
+            "vote_average": 7.02,
+            "vote_count": 713
+        },
+        {
+            "adult": false,
+            "backdrop_path": null,
+            "genre_ids": [
+                18,
+                10749
+            ],
+            "id": 1149913,
+            "original_language": "id",
+            "original_title": "TOGEFILM - Mei Mei",
+            "overview": "",
+            "popularity": 24.942,
+            "poster_path": "/mCJ6shuScPnCh2CS68sPMxGH4UP.jpg",
+            "release_date": "2023-04-06",
+            "title": "TOGEFILM - Mei Mei",
+            "video": false,
+            "vote_average": 10.0,
+            "vote_count": 2
+        }
+    ],
+    "total_pages": 49244,
+    "total_results": 984861
+}

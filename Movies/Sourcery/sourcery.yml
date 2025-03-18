@@ -1,0 +1,10 @@
+sources:
+  - ../Movies
+templates:
+  - ./Templates
+output: ../MoviesTests/Mocks/Generated
+args:
+  autoMockableImports:
+    - Combine
+  autoMockableTestableImports:
+    - Movies
