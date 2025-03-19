@@ -44,7 +44,7 @@ final class FetchMoviesUseCaseImpl: FetchMoviesUseCase {
                         id: $0.id,
                         name: $0.title,
                         overview: $0.overview,
-                        posterURL: URL(string: $0.posterPath ?? ""),
+                        posterURL: $0.posterPath.flatMap { URL(string: "https://image.tmdb.org/t/p/w500\($0)") },
                         releaseDate: formatter.date(from: $0.releaseDate),
                         genres: $0.genreIds.compactMap {
                             guard

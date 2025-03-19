@@ -10,6 +10,7 @@ import Foundation
 
 enum MoviesListViewState {
     case empty
+    case loading
     case hasContent([any MovieItemViewModel], isLoading: Bool)
     case error(String)
 }

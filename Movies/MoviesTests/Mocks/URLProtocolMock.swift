@@ -12,7 +12,7 @@ final class URLProtocolMock: URLProtocol {
 
     // MARK: - Static Internal Properties
     
-    static var mockURLs = [URL?: (error: Error?, data: Data?, response: HTTPURLResponse?)]()
+    static var mockURLs = [String?: (error: Error?, data: Data?, response: HTTPURLResponse?)]()
     
     // MARK: - Public Class Methods
 
@@ -28,7 +28,7 @@ final class URLProtocolMock: URLProtocol {
     
     override func startLoading() {
         if let url = request.url {
-            if let (error, data, response) = URLProtocolMock.mockURLs[url] {
+            if let (error, data, response) = URLProtocolMock.mockURLs[url.absoluteString] {
                 
                 if let responseStrong = response {
                     self.client?.urlProtocol(self, 
