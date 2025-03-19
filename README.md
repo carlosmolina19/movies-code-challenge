@@ -13,7 +13,7 @@ For a detailed explanation, check out our **[Architecture Wiki](https://github.c
 
 ### 1️⃣ Clone the Repository
 ```sh
- git clone https://github.com/carlosmolina19/movies-code-challenget
+ git clone https://github.com/carlosmolina19/movies-code-challenge
 ```
 
 ### 2️⃣ Install Dependencies
@@ -26,22 +26,28 @@ brew install sourcery
 Sourcery is used to generate **Mocks** automatically for testing.
 
 ### 3️⃣ Configure API Keys
+This project uses The Movie Database (TMDB) API. To run the project, you need an API Key, which you can obtain from TMDB's official website:
+
+🔗 [Get your API Key here](https://developer.themoviedb.org/docs/getting-started)
+
+Once you have your API Key, add it to your `.xcconfig` files.
+
 Create the following configuration files inside `Movies/`:
 
 #### `Debug.xcconfig`
 ```sh
-MOVIE_API_SCHEME = https
-MOVIE_API_HOST = api.themoviedb.org
-MOVIE_API_VERSION = 3
-MOVIE_API_KEY = your_api_key_here
+MOVIE_DB_SCHEME = https
+MOVIE_DB_HOST = api.themoviedb.org
+MOVIE_DB_API_VERSION = 3
+TMDB_API_KEY = your_api_key_here
 ```
 
 #### `Release.xcconfig`
 ```sh
-MOVIE_API_SCHEME = https
-MOVIE_API_HOST = api.themoviedb.org
-MOVIE_API_VERSION = 3
-MOVIE_API_KEY = your_api_key_here
+MOVIE_DB_SCHEME = https
+MOVIE_DB_HOST = api.themoviedb.org
+MOVIE_DB_API_VERSION = 3
+TMDB_API_KEY = your_api_key_here
 ```
 
 > ⚠️ Make sure **Debug.xcconfig** and **Release.xcconfig** are **not committed** to version control.
