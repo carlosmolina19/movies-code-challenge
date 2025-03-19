@@ -21,7 +21,7 @@ final class MoviesListViewModelImpl: MoviesListViewModel {
     private var itemViewModelFactory: MovieItemViewModelFactory
     private var tasks = Set<AnyCancellable>()
     private var items = [any MovieItemViewModel]()
-    private var page = 1
+    private var page = 0
     
     // MARK: - Initialization
     
@@ -35,14 +35,16 @@ final class MoviesListViewModelImpl: MoviesListViewModel {
     // MARK: - Internal Methods
     
     func loadItems() {
-        state =  items.isEmpty ? .empty : .hasContent(items,
-                                                      isLoading: true)
+        state =  items.isEmpty ? .loading : .hasContent(items,
+                                                        isLoading: true)
+        page += 1
         fetchMoviesUseCase.execute(page: page)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
                 guard let self else { return }
                 switch completion {
                 case .failure(let error):
+                    self.page -= 1
                     self.state = items.isEmpty ? .error(error.localizedDescription) : .hasContent(items,
                                                                                                   isLoading: false)
                 case .finished:
@@ -53,7 +55,7 @@ final class MoviesListViewModelImpl: MoviesListViewModel {
                 items.append(contentsOf: moviesList.map {
                     self.itemViewModelFactory.create(from: $0)
                 })
-                self.state = .hasContent(self.items, isLoading: false)
+                self.state = self.items.isEmpty ? .empty : .hasContent(self.items, isLoading: false)
             })
             .store(in: &tasks)
     }

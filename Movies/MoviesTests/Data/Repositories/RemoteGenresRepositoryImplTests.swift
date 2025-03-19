@@ -15,7 +15,7 @@ final class RemoteGenresRepositoryImplTests: XCTestCase {
     
     // MARK: - Private Typealias
     
-    private typealias SUT = RemoteGenreRepositoryImpl
+    private typealias SUT = RemoteGenresRepositoryImpl
     
     // MARK: - Private Properties
     

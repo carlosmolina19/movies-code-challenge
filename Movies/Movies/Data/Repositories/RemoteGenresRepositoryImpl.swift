@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-final class RemoteGenreRepositoryImpl: GenresRepository {
+final class RemoteGenresRepositoryImpl: GenresRepository {
 
     // MARK: - Private Properties
 

@@ -51,8 +51,8 @@ final class NetworkProviderTests: XCTestCase {
             return
         }
         let response = HTTPURLResponse()
-
-        URLProtocolMock.mockURLs = [url: (nil, data, response)]
+        
+        URLProtocolMock.mockURLs = [url.absoluteString: (nil, data, response)]
         
         let sessionConfiguration = URLSessionConfiguration.ephemeral
         sessionConfiguration.protocolClasses = [URLProtocolMock.self]
@@ -90,9 +90,7 @@ final class NetworkProviderTests: XCTestCase {
         
         let error = NSError(domain: "test.domain", code: -1)
         
-        let response = HTTPURLResponse()
-
-        URLProtocolMock.mockURLs = [url: (error, nil, response)]
+        URLProtocolMock.mockURLs = [url.absoluteString: (error, nil, nil)]
         
         let sessionConfiguration = URLSessionConfiguration.ephemeral
         sessionConfiguration.protocolClasses = [URLProtocolMock.self]
