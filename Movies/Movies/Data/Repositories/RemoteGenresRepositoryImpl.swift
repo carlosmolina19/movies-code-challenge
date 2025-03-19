@@ -1,15 +1,14 @@
 //
-//  RemoteMoviesRepositoryImpl.swift
+//  RemoteGenresRepositoryImpl.swift
 //  Movies
 //
 //  Created by Carlos Molina Sáenz on 18/03/25.
 //
 
-
 import Combine
 import Foundation
 
-final class RemoteMoviesRepositoryImpl: MoviesRepository {
+final class RemoteGenreRepositoryImpl: GenresRepository {
 
     // MARK: - Private Properties
 
@@ -23,18 +22,14 @@ final class RemoteMoviesRepositoryImpl: MoviesRepository {
 
     // MARK: - Internal Methods
 
-    func fetch(page: Int) -> AnyPublisher<MovieResponseDTO, MoviesAppError> {
+    func fetch() -> AnyPublisher<GenreResponseDTO, MoviesAppError> {
         let version: String = Bundle.main.object(forInfoDictionaryKey: "MOVIE_API_VERSION") as? String ?? ""
         var components = URLComponents()
         components.scheme = Bundle.main.object(forInfoDictionaryKey: "MOVIE_API_SCHEME") as? String ?? ""
         components.host = Bundle.main.object(forInfoDictionaryKey: "MOVIE_API_HOST") as? String ?? ""
-        components.path = "/\(version)/discover/movie"
+        components.path = "/\(version)/genre/movie/list"
         components.queryItems = [
-            URLQueryItem(name: "include_adult", value: "false"),
-            URLQueryItem(name: "include_video", value: "false"),
-            URLQueryItem(name: "language", value: "en-US"),
-            URLQueryItem(name: "page", value: "\(page)"),
-            URLQueryItem(name: "sort_by", value: "popularity.desc")
+            URLQueryItem(name: "language", value: "en-US")
         ]
 
 
@@ -46,7 +41,7 @@ final class RemoteMoviesRepositoryImpl: MoviesRepository {
         return networkProvider.fetch(from: url).tryMap {
             let decode = JSONDecoder()
             decode.keyDecodingStrategy = .convertFromSnakeCase
-            guard let response: MovieResponseDTO = try? decode.decode(MovieResponseDTO.self, from: $0)
+            guard let response: GenreResponseDTO = try? decode.decode(GenreResponseDTO.self, from: $0)
             else {
                 throw MoviesAppError.invalidFormat
             }
