@@ -10,6 +10,6 @@ import Combine
 import Foundation
 
 /// sourcery: AutoMockable
-protocol RemoteMoviesRepository {
+protocol MoviesRepository {
     func fetch(page: Int) -> AnyPublisher<MovieResponseDTO, MoviesAppError>
 }
