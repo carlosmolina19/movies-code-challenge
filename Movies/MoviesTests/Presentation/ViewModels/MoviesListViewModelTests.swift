@@ -64,7 +64,7 @@ final class MoviesListViewModelImplTests: XCTestCase {
             .dropFirst()
             .sink { state in
                 switch state {
-                case .empty:
+                case .loading:
                     expectation.fulfill()
                 default:
                     XCTFail("Expected state to be .hasContent with isLoading = true")

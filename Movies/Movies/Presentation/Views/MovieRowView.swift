@@ -31,6 +31,22 @@ struct MovieRowView: View {
                 Text(movie.date)
                     .font(.subheadline)
                     .foregroundColor(.gray)
+                if !movie.genres.isEmpty {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(movie.genres, id: \.self) { genre in
+                                Text(genre)
+                                    .font(.caption)
+                                    .padding(.horizontal, 8)
+                                    .padding(.vertical, 4)
+                                    .background(Color.blue.opacity(0.2))
+                                    .foregroundColor(.blue)
+                                    .cornerRadius(8)
+                            }
+                        }
+                    }
+                }
+                
                 Text(movie.overview)
                     .font(.footnote)
                     .lineLimit(2)
