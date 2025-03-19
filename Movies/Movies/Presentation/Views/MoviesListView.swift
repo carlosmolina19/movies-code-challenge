@@ -29,6 +29,7 @@ struct MoviesListView<T: MoviesListViewModel>: View {
                     viewModel.loadItems()
                 }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     @ViewBuilder
